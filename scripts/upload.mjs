@@ -1,4 +1,4 @@
-import { zowe, exists } from './zowe.mjs';
+import { zowe, exists, upload } from './zowe.mjs';
 import config from "config";
 import { readdir } from 'fs';
 import { promisify } from 'util';
@@ -16,10 +16,7 @@ if (!exists(dataSet)) {
 
 (async () => {
     const dir = await readdirp(source);
-
     dir.forEach(async (file) => {
-        const fileNoExt = basename(file, extname(file));
-        const filePath = `${source}/${file}`;
-        zowe(`zowe files upload ftds ${filePath} ${dataSet}(${fileNoExt})`);
+        upload(dataSet, source, file);
     });
 })();

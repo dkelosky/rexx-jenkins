@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import { basename, extname } from 'path';
 
 export function zowe(cmd) {
     try {
@@ -37,4 +38,10 @@ function dsnExists(dsn) {
         return resp.toString().trim() !== '';
     } catch (e) { }
     return false;
+}
+
+export function upload(dsn, dir, file) {
+    const fileNoExt = basename(file, extname(file));
+    const filePath = `${dir}/${file}`;
+    zowe(`zowe files upload ftds ${filePath} ${dsn}(${fileNoExt})`);
 }
