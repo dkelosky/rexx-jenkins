@@ -1,2 +1,2 @@
 /* rexx */
-say "Hello World!"
+say "Hello "

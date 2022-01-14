@@ -8,9 +8,9 @@ IF NOT EXIST "%KEY_FILE%" (
 )
 SET /P KEY=< "%KEY_FILE%"
 
-if "%~1"=="" (
-    echo Usage: %~n0 dsn(member^)
-    exit /b 1
-)
+@REM if "%~1"=="" (
+@REM     echo Usage: %~n0 dsn(member^)
+@REM     exit /b 1
+@REM )
 
-zowe tso send as %KEY% --data "ex '%1'"
+zowe tso send as %KEY% --data "%*"
