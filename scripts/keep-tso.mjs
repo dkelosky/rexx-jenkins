@@ -9,7 +9,12 @@ const WAIT_TIME = 1000 * 60 * 5; // 5 minutes (in milliseconds) - milliseconds *
 
 function start() {
     console.log(`Starting TSO...`);
-    const key = execSync(`zowe tso start as --sko`).toString().trim();
+    let key;
+    try {
+        key = execSync(`zowe tso start as --sko`).toString().trim();
+    } catch (e) {
+        process.exit(1);
+    }
     writeFileSync(KEY_FILE, key);
 
     commands().forEach(cmd => {
@@ -59,6 +64,7 @@ function send(key, cmd) {
         console.log(execSync(`zowe tso send as ${key} --data "${cmd}"`).toString().trim());
     } catch (e) {
         // do nothing
+        console.log(`Unexpected error: ${e}`);
     }
 }
 

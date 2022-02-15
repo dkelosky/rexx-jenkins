@@ -12,7 +12,7 @@
         "tso": {
             "type": "tso",
             "properties": {
-                "account": "",
+                // "account": "iZUACCT",
                 "codePage": "1047",
                 "logonProcedure": "IZUFPROC"
             },
@@ -23,7 +23,11 @@
             "properties": {
                 "host": "",
                 "rejectUnauthorized": true
-            }
+            },
+            "secure": [
+                "user",
+                "password"
+            ]
         }
     },
     "defaults": {

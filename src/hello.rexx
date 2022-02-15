@@ -1,2 +1,3 @@
 /* rexx */
-say "Hello "
+parse arg value
+say "Hello "value

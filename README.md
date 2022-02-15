@@ -25,6 +25,6 @@ an active TSO servlet.
 
 [`setup`](./setup.bat) starts TSO address space and keeps it running.
 
-### ex.bat
+### send.bat
 
-[`ex`](./ex.bad) wraps running a REXX file against a TSO address space started via `setup`.
+[`ex`](./ex.bad) wraps running TSO commands via `zowe` against a TSO address space started via `setup`.
