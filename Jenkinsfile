@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'echo $USER'
                 sh 'node --version'
                 sh 'zowe --version'
             }
