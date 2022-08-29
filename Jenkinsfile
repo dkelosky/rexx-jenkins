@@ -1,9 +1,13 @@
 pipeline {
     agent { docker { image 'zowe/daemon' } }
+    
+    environment {
+    }
+    
     stages {
         stage('build') {
             steps {
-                sh "echo $USER"
+                sh "pwd"
                 sh 'node --version'
                 sh 'zowe --version'
             }
