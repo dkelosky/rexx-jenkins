@@ -1,8 +1,8 @@
 pipeline {
     agent { docker { image 'zowe/daemon' } }
     
-    environment {
-    }
+//     environment {
+//     }
     
     stages {
         stage('build') {
