@@ -1,5 +1,10 @@
 pipeline {
-    agent { docker { image 'zowe/daemon' } }
+  agent { 
+    docker { 
+      image 'zowe/daemon'
+      args '-u root'  
+    } 
+  }
 //     agent { docker { image 'zowe/daemon' args '-u root' } }
     
 //     environment {
