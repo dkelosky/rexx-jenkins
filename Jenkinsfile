@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'zowe/daemon' } }
+    agent { docker { image 'zowe/daemon' args '-u root' } }
     
     environment {
         ZOWE_CLI_HOME = "$HOME"
