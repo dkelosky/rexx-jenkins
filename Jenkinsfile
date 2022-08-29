@@ -1,8 +1,9 @@
 pipeline {
     agent { docker { image 'zowe/daemon' } }
     
-//     environment {
-//     }
+    environment {
+        ZOWE_CLI_HOME = "$HOME"
+    }
     
     stages {
         stage('build') {
