@@ -9,6 +9,7 @@ pipeline {
         stage('build') {
             steps {
                 sh "pwd"
+                echo "$ZOWE_CLI_HOME"
                 sh 'node --version'
                 sh 'zowe --version'
             }
