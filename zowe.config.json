@@ -4,8 +4,8 @@
         "zosmf": {
             "type": "zosmf",
             "properties": {
-                "port": 1443,
-                "host": "usilca11.lvn.broadcom.net"
+                "port": 443,
+                "host": "mainframes.com"
             },
             "secure": []
         },
