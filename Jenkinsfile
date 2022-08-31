@@ -26,13 +26,15 @@ pipeline {
         sh 'zowe zosmf check status'
       }
     }
-    // stage('build') {
-      // steps {
-    //   sh 'npm run build'
-      // }
-    // }
-    // stage('deploy') {
-    //   sh 'npm run deploy'
-    // }
+    stage('build') {
+      steps {
+        sh 'npm run build'
+      }
+    }
+    stage('deploy') {
+      steps {
+        sh 'npm run deploy'
+      }
+    }
   }
 }
