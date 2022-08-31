@@ -19,7 +19,7 @@ RUN apk --no-cache add nodejs npm
 RUN npm install -g @zowe/cli --ignore-scripts && npm cache clean --force && \
   rm -rf /usr/local/lib/node_modules/@zowe/cli/prebuilds
 
-# Copy zowex binary
+# Copy zowe binary
 COPY --from=0 /zowe-cli/zowex/target/release/zowe /usr/local/sbin/zowe
 
 # Disable credential manager
