@@ -16,14 +16,20 @@ pipeline {
       }
     }
     stage('set credentials') {
-      sh 'zowe config set profiles.base.properties.user $ZOWE_CREDS_USR'
-      sh 'zowe config set profiles.base.properties.password $ZOWE_CREDS_PSW'
+      steps {
+        sh 'zowe config set profiles.base.properties.user $ZOWE_CREDS_USR'
+        sh 'zowe config set profiles.base.properties.password $ZOWE_CREDS_PSW'
+      }
     }
     stage('status') {
-      sh 'zowe zosmf check status'
+      steps {
+        sh 'zowe zosmf check status'
+      }
     }
     // stage('build') {
+      // steps {
     //   sh 'npm run build'
+      // }
     // }
     // stage('deploy') {
     //   sh 'npm run deploy'
