@@ -3,7 +3,7 @@ import { basename, extname } from 'path';
 
 export function zowe(cmd) {
     try {
-        const resp = execSync(cmd);
+        const resp = execSync(`zowe ${cmd}`);
         console.log(resp.toString().trim());
     } catch (e) { }
 }
@@ -43,5 +43,5 @@ function dsnExists(dsn) {
 export function upload(dsn, dir, file) {
     const fileNoExt = basename(file, extname(file));
     const filePath = `${dir}/${file}`;
-    zowe(`zowe files upload ftds ${filePath} ${dsn}(${fileNoExt})`);
+    zowe(`files upload ftds ${filePath} ${dsn}(${fileNoExt})`);
 }

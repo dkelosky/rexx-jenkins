@@ -16,4 +16,4 @@ if (!exists(rexx)) {
     process.exit(1);
 }
 
-zowe(`zowe tso issue command "ex '${rexx}'" --ssm`);
+zowe(`tso issue command "ex '${rexx}'" --ssm`);

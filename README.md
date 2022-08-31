@@ -6,8 +6,9 @@ REXX project with utilities to help with REXX development.
 
 1. `git clone`
 2. `npm install`
-3. create `config/local.json` like [`config/default.json`](./config/default.json)
+3. create `config/local.json5` like [`config/default.json5`](./config/default.json5) and customize with proper values
 4. `zowe config secure` or create `zowe.config.user.json` like [`zowe.config.json`](./zowe.config.json) with user & password & account
+5. Update host / port in `zowe.config.json`.
 
 ## Usage
 
