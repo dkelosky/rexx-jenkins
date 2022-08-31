@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node scripts/create.mjs",
+    "allocate": "node scripts/create.mjs",
     "deploy": "node scripts/upload.mjs",
     "start:hello": "node scripts/run.mjs hello",
     "watch": "node scripts/watch.mjs",

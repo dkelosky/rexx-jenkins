@@ -9,29 +9,36 @@ pipeline {
     ZOWE_CREDS = credentials('zowe-automation')
   }
   stages {
-    stage('info') {
+    stage('Versions') {
       steps {
         sh 'node --version'
         sh 'zowe --version'
       }
     }
-    stage('set credentials') {
+    stage('Credentials') {
       steps {
-        sh 'zowe config set profiles.base.properties.user $ZOWE_CREDS_USR'
-        sh 'zowe config set profiles.base.properties.password $ZOWE_CREDS_PSW'
+        sh 'zowe config set profiles.base.properties.user $ZOWE_CREDS_USR'     // set user
+        sh 'zowe config set profiles.base.properties.password $ZOWE_CREDS_PSW' // set password
       }
     }
-    stage('status') {
+    stage('Config') {
+      steps {
+        sh 'chmod 777 writeUserConfig.sh'                                      // enable shell script
+        sh './writeUserConfig.sh $ZOWE_CREDS_USR'                              // write config/local.json5
+        sh 'cat config/local.json5'                                            // echo contents
+      }
+    }
+    stage('Check status') {
       steps {
         sh 'zowe zosmf check status'
       }
     }
-    stage('build') {
+    stage('Allocate') {
       steps {
-        sh 'npm run build'
+        sh 'npm run allocate'
       }
     }
-    stage('deploy') {
+    stage('Deploy') {
       steps {
         sh 'npm run deploy'
       }
