@@ -35,7 +35,7 @@ pipeline {
     }
     stage('Add dependencies') {
       steps {
-        sh 'npm install'
+        sh 'npm install --ignore-scripts'
       }
     }
     stage('Allocate') {
