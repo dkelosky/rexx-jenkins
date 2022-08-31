@@ -11,6 +11,7 @@ pipeline {
   stages {
     stage('Versions') {
       steps {
+        sh 'cat zowe-init.log'
         sh 'node --version'
         sh 'zowe --version'
       }
