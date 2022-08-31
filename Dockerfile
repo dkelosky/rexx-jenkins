@@ -13,7 +13,7 @@ RUN cd zowe-cli/zowex && cargo build --verbose --release
 FROM alpine:latest
 
 # Install runtime dependencies
-RUN apk --no-cache add nodejs npm
+RUN apk --no-cache add nodejs npm bash
 
 # Install Zowe CLI
 RUN npm install -g @zowe/cli --ignore-scripts && npm cache clean --force && \
