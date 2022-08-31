@@ -33,6 +33,11 @@ pipeline {
         sh 'zowe zosmf check status'
       }
     }
+    stage('Add dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
     stage('Allocate') {
       steps {
         sh 'npm run allocate'
