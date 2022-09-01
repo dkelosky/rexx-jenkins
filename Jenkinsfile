@@ -39,7 +39,7 @@ pipeline {
     }
     stage('Make data set') {
       steps {
-        sh 'ZOWE_SHOW_SECURE_ARGS=true zowe jobs list jobs --show-inputs-only'
+        sh 'ZOWE_SHOW_SECURE_ARGS=true zowe jobs list jobs --user $ZOWE_CREDS_USR --password $ZOWE_CREDS_PSW'
 //         sh 'zowe files create pds "kelda16.work.temp.ds"'
       }
     }
