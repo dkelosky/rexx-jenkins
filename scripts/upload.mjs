@@ -2,7 +2,6 @@ import { zowe, exists, upload } from './zowe.mjs';
 import config from "config";
 import { readdir } from 'fs';
 import { promisify } from 'util';
-import { basename, extname } from 'path';
 
 const readdirp = promisify(readdir);
 
