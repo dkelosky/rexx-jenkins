@@ -30,11 +30,11 @@ pipeline {
         sh 'cat config/local.json5'                                            // echo contents
       }
     }
-    stage('Check status') {
-      steps {
-        sh 'zowe zosmf check status'
-      }
-    }
+//     stage('Check status') {
+//       steps {
+//         sh 'zowe zosmf check status'
+//       }
+//     }
     stage('Add dependencies') {
       steps {
         sh 'npm install --ignore-scripts'
