@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'zowe/daemon'
-      args '-u root'
+//       args '-u root'
     }
   }
   environment {
@@ -33,28 +33,28 @@ pipeline {
         sh 'zowe zosmf check status'
       }
     }
-    stage('Make data set') {
-      steps {
-        sh 'zowe jobs list jobs'
-//         sh 'zowe files create pds "kelda16.work.temp.ds"'
-      }
-    }
-    stage('Add dependencies') {
-      steps {
-        sh 'npm config set unsafe-perm true'
-        sh 'npm install --ignore-scripts'
-      }
-    }
-    stage('Allocate') {
-      steps {
-        sh 'npm config set unsafe-perm true'
-        sh 'node scripts/create.mjs'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        sh 'npm run deploy'
-      }
-    }
+//     stage('Make data set') {
+//       steps {
+//         sh 'zowe jobs list jobs'
+// //         sh 'zowe files create pds "kelda16.work.temp.ds"'
+//       }
+//     }
+//     stage('Add dependencies') {
+//       steps {
+//         sh 'npm config set unsafe-perm true'
+//         sh 'npm install --ignore-scripts'
+//       }
+//     }
+//     stage('Allocate') {
+//       steps {
+//         sh 'npm config set unsafe-perm true'
+//         sh 'node scripts/create.mjs'
+//       }
+//     }
+//     stage('Deploy') {
+//       steps {
+//         sh 'npm run deploy'
+//       }
+//     }
   }
 }
