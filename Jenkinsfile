@@ -39,7 +39,7 @@ pipeline {
     }
     stage('Make data set') {
       steps {
-        sh 'zowe jobs list jobs --user kelda16 --password erty3456'
+        sh 'zowe jobs list jobs'
 //         sh 'zowe files create pds "kelda16.work.temp.ds"'
       }
     }
