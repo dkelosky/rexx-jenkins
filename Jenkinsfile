@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'zowe/daemon'
-//       args '-u root'
+      // args '-u root'
     }
   }
   environment {
@@ -24,8 +24,8 @@ pipeline {
     stage('Config') {
       steps {
         sh 'chmod +x writeUserConfig.sh'                                      // enable shell script
-        sh './writeUserConfig.sh $ZOWE_CREDS_USR'                              // write config/local.json5
-        sh 'cat config/local.json5'                                            // echo contents
+        sh './writeUserConfig.sh $ZOWE_CREDS_USR'                             // write config/local.json5
+        sh 'cat config/local.json5'                                           // echo contents
       }
     }
     stage('Check status') {
@@ -40,7 +40,7 @@ pipeline {
     }
     stage('Allocate') {
       steps {
-//         sh 'node scripts/create.mjs' // when running as root
+        // sh 'node scripts/create.mjs' // when running as root
         sh 'npm run allocate'
       }
     }
