@@ -27,4 +27,4 @@ RUN mkdir -p /root/.zowe/settings && \
   echo "{\"overrides\":{\"CredentialManager\":false}}" >> /root/.zowe/settings/imperative.json
 
 # Launch zowe daemon
-CMD nohup /usr/local/bin/zowe --daemon > /dev/null & /bin/sh
+ENTRYPOINT nohup /usr/local/bin/zowe --daemon > /dev/null & /bin/sh

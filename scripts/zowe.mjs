@@ -3,6 +3,7 @@ import { basename, extname } from 'path';
 
 export function zowe(cmd) {
     try {
+        console.log(`Running ${cmd}`);
         const resp = execSync(`zowe ${cmd}`);
         console.log(resp.toString().trim());
     } catch (e) { }
