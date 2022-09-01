@@ -37,6 +37,7 @@ pipeline {
     }
     stage('Make data set') {
       steps {
+        sh 'zowe jobs list jobs"'
         sh 'zowe files create pds "kelda16.work.temp.ds"'
       }
     }
