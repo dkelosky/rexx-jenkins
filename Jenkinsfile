@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'zowe/daemon'
-//       args '-u root'
+      args '-u zowe'
     }
   }
   environment {
