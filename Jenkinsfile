@@ -26,6 +26,7 @@ pipeline {
         sh 'chmod +x writeUserConfig.sh'                                      // enable shell script
         sh 'pwd'                                      // enable shell script
         sh 'ls -la config'                                      // enable shell script
+        sh 'cat config/local.json5'                                            // echo contents
 //         sh 'rm config/local.json5'                                      // enable shell script
 //         sh 'chmod 777 config'                                      // enable shell script
         sh './writeUserConfig.sh $ZOWE_CREDS_USR'                              // write config/local.json5
