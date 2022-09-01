@@ -46,5 +46,5 @@ function dsnExists(dsn) {
 export function upload(dsn, dir, file) {
     const fileNoExt = basename(file, extname(file));
     const filePath = `${dir}/${file}`;
-    zowe(`files upload ftds ${filePath} ${dsn}(${fileNoExt})`);
+    zowe(`files upload ftds ${filePath} "${dsn}(${fileNoExt})"`);
 }
