@@ -39,8 +39,8 @@ pipeline {
     }
     stage('Make data set') {
       steps {
-        sh 'zowe jobs list jobs'
-        sh 'zowe files create pds "kelda16.work.temp.ds"'
+        sh 'ZOWE_SHOW_SECURE_ARGS=true zowe jobs list jobs --show-inputs-only'
+//         sh 'zowe files create pds "kelda16.work.temp.ds"'
       }
     }
     stage('Add dependencies') {
