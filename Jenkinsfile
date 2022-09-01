@@ -46,6 +46,7 @@ pipeline {
     }
     stage('Allocate') {
       steps {
+        sh 'npm config set unsafe-perm true'
         sh 'npm run allocate'
       }
     }
