@@ -24,11 +24,6 @@ pipeline {
     stage('Config') {
       steps {
         sh 'chmod +x writeUserConfig.sh'                                      // enable shell script
-        sh 'pwd'                                      // enable shell script
-        sh 'ls -la config'                                      // enable shell script
-        sh 'cat config/local.json5'                                            // echo contents
-//         sh 'rm config/local.json5'                                      // enable shell script
-//         sh 'chmod 777 config'                                      // enable shell script
         sh './writeUserConfig.sh $ZOWE_CREDS_USR'                              // write config/local.json5
         sh 'cat config/local.json5'                                            // echo contents
       }
@@ -38,28 +33,22 @@ pipeline {
         sh 'zowe zosmf check status'
       }
     }
-//     stage('Make data set') {
-//       steps {
-//         sh 'zowe jobs list jobs'
-// //         sh 'zowe files create pds "kelda16.work.temp.ds"'
-//       }
-//     }
-//     stage('Add dependencies') {
-//       steps {
-//         sh 'npm config set unsafe-perm true'
-//         sh 'npm install --ignore-scripts'
-//       }
-//     }
-//     stage('Allocate') {
-//       steps {
-//         sh 'npm config set unsafe-perm true'
-//         sh 'node scripts/create.mjs'
-//       }
-//     }
-//     stage('Deploy') {
-//       steps {
-//         sh 'npm run deploy'
-//       }
-//     }
+    stage('Add dependencies') {
+      steps {
+        sh 'npm install --ignore-scripts'
+      }
+    }
+    stage('Allocate') {
+      steps {
+        sh 'npm config set unsafe-perm true'
+//         sh 'node scripts/create.mjs' // when running as root
+        sh 'npm run allocate'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'npm run deploy'
+      }
+    }
   }
 }
