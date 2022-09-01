@@ -28,11 +28,13 @@ pipeline {
         sh 'chmod +x writeUserConfig.sh'                                      // enable shell script
         sh './writeUserConfig.sh $ZOWE_CREDS_USR'                              // write config/local.json5
         sh 'cat config/local.json5'                                            // echo contents
+        sh 'ls -la'
       }
     }
     stage('Check status') {
       steps {
         sh 'zowe zosmf check status'
+        sh 'ls -la'
       }
     }
     stage('Make data set') {
