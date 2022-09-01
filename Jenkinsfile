@@ -11,8 +11,6 @@ pipeline {
   stages {
     stage('Versions') {
       steps {
-        sh 'whoami'
-        sh 'cat zowe-init.log'
         sh 'node --version'
         sh 'zowe --version'
       }
@@ -28,19 +26,17 @@ pipeline {
         sh 'chmod +x writeUserConfig.sh'                                      // enable shell script
         sh './writeUserConfig.sh $ZOWE_CREDS_USR'                              // write config/local.json5
         sh 'cat config/local.json5'                                            // echo contents
-        sh 'ls -la config'
       }
     }
     stage('Check status') {
       steps {
         sh 'zowe zosmf check status'
-        sh 'ls -la config'
       }
     }
     stage('Make data set') {
       steps {
         sh 'zowe jobs list jobs'
-//         sh 'zowe files create pds "kelda16.work.temp.ds"'
+        sh 'zowe files create pds "kelda16.work.temp.ds"'
       }
     }
     stage('Add dependencies') {
