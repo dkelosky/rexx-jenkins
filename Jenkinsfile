@@ -40,7 +40,6 @@ pipeline {
     }
     stage('Allocate') {
       steps {
-        sh 'npm config set unsafe-perm true'
 //         sh 'node scripts/create.mjs' // when running as root
         sh 'npm run allocate'
       }
