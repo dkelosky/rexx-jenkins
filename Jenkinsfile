@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'zowe/daemon'
-//       args '-u root'
+      args '-u root'
     }
   }
   environment {
@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Versions') {
       steps {
-        sh 'ls -la'
+        sh 'whoami'
         sh 'cat zowe-init.log'
         sh 'node --version'
         sh 'zowe --version'
