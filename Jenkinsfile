@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'zowe/daemon'
-      args '-u root'
+//       args '-u root'
     }
   }
   environment {
@@ -40,6 +40,7 @@ pipeline {
     }
     stage('Allocate') {
       steps {
+//         sh 'node scripts/create.mjs' // when running as root
         sh 'npm run allocate'
       }
     }
