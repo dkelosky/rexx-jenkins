@@ -41,13 +41,14 @@ pipeline {
     }
     stage('Add dependencies') {
       steps {
+        sh 'npm config set unsafe-perm true'
         sh 'npm install --ignore-scripts'
       }
     }
     stage('Allocate') {
       steps {
         sh 'npm config set unsafe-perm true'
-        sh 'npm run allocate'
+        sh 'node scripts/create.mjs'
       }
     }
     stage('Deploy') {
