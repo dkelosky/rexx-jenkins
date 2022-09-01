@@ -12,7 +12,7 @@ pipeline {
     stage('Versions') {
       steps {
         sh 'ls -la'
-        //sh 'cat zowe-init.log'
+        sh 'cat zowe-init.log'
         sh 'node --version'
         sh 'zowe --version'
       }
