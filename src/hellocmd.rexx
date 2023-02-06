@@ -5,3 +5,5 @@
  say 'Hello command rule fired'
  return accept
 )TERM
+ say 'Hello command rule disabled'
+)END
